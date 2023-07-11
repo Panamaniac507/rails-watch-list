@@ -1,13 +1,13 @@
 class ListsController < ApplicationController
 
-  before_action :set_list, only: [:new, :create]
+  before_action :set_list, only: [:show]
 
   def index
     @lists = List.all
   end
 
   def show
-    @lists = List.find(params[:id])
+    @list = List.find(params[:id])
     @bookmarks = @list.bookmarks
   end
 
@@ -17,8 +17,8 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.movies = @movie
-    @list.bookmarks = @bookmark
+    # @list.movies = @movie
+    # @list.bookmarks = @bookmark
     if @list.save
       redirect_to list_path(@list)
     else
@@ -29,11 +29,10 @@ class ListsController < ApplicationController
   private
 
   def set_list
-
     @list = List.find(params[:id])
   end
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end

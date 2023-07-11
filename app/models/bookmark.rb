@@ -1,7 +1,8 @@
 class Bookmark < ApplicationRecord
   belongs_to :list, dependent: :destroy
   belongs_to :movie, dependent: :destroy
-  validates
+  validates :movie_id, uniqueness: { scope: :list_id, message: "Already on the list"}
+  validates :comment, length: { minimum: 6 }
 end
 
 
