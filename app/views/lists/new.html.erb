@@ -3,10 +3,7 @@
 
 <% @list %>
 
-<%= simple_form_for @list do |f| %>
-          <%= f.input :name, placeholder: 'Drama' %>
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
+<%= render "form" %>
 
 <br>
 

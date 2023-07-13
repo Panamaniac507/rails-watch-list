@@ -1,5 +1,9 @@
 <div class="container">
 <h1>All Lists</h1>
+
+<%= cl_image_tag("v8koyvjkqyfqgxdqt4jn",
+      width: 400, height: 300, crop: :fill) %>
+
 <% @lists.each do |list| %>
 <li><%= list.name %></li>
 
